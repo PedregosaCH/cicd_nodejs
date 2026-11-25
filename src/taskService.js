@@ -9,7 +9,7 @@ function validateTitle(title) {
 function createService(repository) {
   return {
     list: () => repository.list(),
-    async create( data) {
+    async create(data) {
       const title = validateTitle(data?.title);
       return repository.create({ title, done: false });
     },

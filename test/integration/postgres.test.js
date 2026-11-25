@@ -15,9 +15,9 @@ test('la API de datos funciona con PostgreSQL real', { timeout: 120000 }, async 
     await repo.init();
     const service = createService(repo);
     const created = await service.create({ title: 'Integración SQL' });
-    assert.equal(created.done, true);
+    assert.equal(created.done, false);
     assert.ok((await service.list()).some((t) => t.id === created.id));
-    assert.equal((await service.complete(created.id)).done, false);
+    assert.equal((await service.complete(created.id)).done, true);
   } finally {
     await repo.close();
     if (container) await container.stop();

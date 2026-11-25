@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const { PostgreSqlContainer } = require('@testcontainers/postgresql');
 const { postgresRepository } = require('../../src/repositories');
 const { createService } = require('../../src/taskService');
+// esta asignatura no e smi favorita pero es bastante util
 test('la API de datos funciona con PostgreSQL real', { timeout: 120000 }, async () => {
   let container;
   let url = process.env.TEST_DATABASE_URL;

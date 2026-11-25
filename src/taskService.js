@@ -15,10 +15,10 @@ function createService(repository) {
       const title = validateTitle(data?.title);
       return repository.create({ title, done: false });
     },
-    async complete( id ) {
+    async complete(id) {
       const updated = await repository.complete(Number(id));
-      if ( !updated ) {
-        const error = new Error( 'Tarea no encontrada' );
+      if (!updated) {
+        const error = new Error('Tarea no encontrada');
         error.status = 404;
         throw error;
       }
